@@ -1,6 +1,6 @@
-# quran_kareem
+# Akra App
 
-A new Flutter project.
+Better to read The Quran.
 
 ## Getting Started
 
