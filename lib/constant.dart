@@ -10,8 +10,8 @@ int bookmarkedSura = 1;
 bool fabIsClicked = true;
 
 final ItemScrollController itemScrollController = ItemScrollController();
-final ItemPositionsListener itemPositionsListener =ItemPositionsListener.create();
-
+final ItemPositionsListener itemPositionsListener =
+    ItemPositionsListener.create();
 
 String arabicFont = 'quran';
 double arabicFontSize = 28;
@@ -36,8 +36,8 @@ Future getSettings() async {
   }
 }
 
-saveBookMark (surah,ayah)async{
-  final prefs=await SharedPreferences.getInstance();
+saveBookMark(surah, ayah) async {
+  final prefs = await SharedPreferences.getInstance();
   await prefs.setInt("surah", surah);
   await prefs.setInt("ayah", ayah);
 }
@@ -288,15 +288,17 @@ List<int> noOfVerses = [
   6
 ];
 
+List arabic = [];
+List malayalam = [];
+List quran = [];
 
-List arabic =[];
-List malayalam =[];
-List quran =[];
-
-Future readJson ()async{
-  final String response =await rootBundle.loadString("assets/hafs_smart.json");
-  final data=json.decode(response);
-  arabic=data["quran"];
-  malayalam=data["malayalam"];
-  return quran=[arabic,malayalam];
+Future readJson() async {
+  final String response =
+      await rootBundle.loadString("assets/hafs_smart_v8.json");
+  final data = json.decode(response);
+  arabic = data["quran"];
+  malayalam = data["malayalam"];
+  return quran = [arabic, malayalam];
 }
+
+

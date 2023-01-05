@@ -13,7 +13,7 @@ class _SettingsFontsState extends State<SettingsFonts> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        backgroundColor: Color(
+        backgroundColor: const Color(
           0xffFEFAE0,
         ),
         appBar: AppBar(
@@ -36,10 +36,10 @@ class _SettingsFontsState extends State<SettingsFonts> {
                     ),
                   ),
                   Slider(
-                    activeColor: Color(
+                    activeColor: const Color(
                       0xffD4A373,
                     ),
-                    inactiveColor: Color(
+                    inactiveColor: const Color(
                       0xffFAEDCD,
                     ),
                     value: arabicFontSize,
@@ -52,7 +52,7 @@ class _SettingsFontsState extends State<SettingsFonts> {
                     },
                   ),
                   Text(
-                    "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+                    "‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ‏",
                     style: TextStyle(
                         fontFamily: 'quran', fontSize: arabicFontSize),
                     textDirection: TextDirection.rtl,
@@ -69,10 +69,10 @@ class _SettingsFontsState extends State<SettingsFonts> {
                     ),
                   ),
                   Slider(
-                    activeColor: Color(
+                    activeColor: const Color(
                       0xffD4A373,
                     ),
-                    inactiveColor: Color(
+                    inactiveColor: const Color(
                       0xffFAEDCD,
                     ),
                     value: mushafFontSize,
@@ -85,7 +85,7 @@ class _SettingsFontsState extends State<SettingsFonts> {
                     },
                   ),
                   Text(
-                    "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+                    "‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ‏",
                     style: TextStyle(
                         fontFamily: 'quran', fontSize: mushafFontSize),
                     textDirection: TextDirection.rtl,
@@ -99,7 +99,7 @@ class _SettingsFontsState extends State<SettingsFonts> {
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shadowColor: Colors.transparent,
-                            backgroundColor: Color(
+                            backgroundColor: const Color(
                               0xffD4A373,
                             ),
                             elevation: 0,
@@ -115,7 +115,7 @@ class _SettingsFontsState extends State<SettingsFonts> {
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shadowColor: Colors.transparent,
-                            backgroundColor: Color(
+                            backgroundColor: const Color(
                               0xffD4A373,
                             ),
                             elevation: 0,

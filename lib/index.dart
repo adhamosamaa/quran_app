@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'arabic_sura_numbers.dart';
-import 'main.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'mydrawer.dart';
 import 'surah_builder.dart';
 import 'constant.dart';
-import 'surah_drawer.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -18,29 +15,30 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFEFAE0),
-      drawer: const MyDrawer(),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Go to bookmark',
-        child: const Icon(Icons.bookmark),
-        backgroundColor: Color(
-          0xffD4A373,
-        ),
-        onPressed: () async {
-          fabIsClicked = true;
-          if (await readBookmark() == true) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => SurahBuilder(
-                          arabic: quran[0],
-                          sura: bookmarkedSura - 1,
-                          suraName: arabicName[bookmarkedSura - 1]['name'],
-                          ayah: bookmarkedAyah,
-                        )));
-          }
-        },
-      ),
+      backgroundColor: const Color(0xffFEFAE0),
+      // drawer: const MyDrawer(),
+      endDrawer: MyDrawer(),
+      // floatingActionButton: FloatingActionButton(
+      //   tooltip: 'Go to bookmark',
+      //   child: const Icon(Icons.bookmark),
+      //   backgroundColor: const Color(
+      //     0xffD4A373,
+      //   ),
+      //   onPressed: () async {
+      //     fabIsClicked = true;
+      //     if (await readBookmark() == true) {
+      //       Navigator.push(
+      //           context,
+      //           MaterialPageRoute(
+      //               builder: (context) => SurahBuilder(
+      //                     arabic: quran[0],
+      //                     sura: bookmarkedSura - 1,
+      //                     suraName: arabicName[bookmarkedSura - 1]['name'],
+      //                     ayah: bookmarkedAyah,
+      //                   )));
+      //     }
+      //   },
+      // ),
       appBar: AppBar(
         title: const Text(
           "المصحف",
@@ -48,6 +46,23 @@ class _IndexPageState extends State<IndexPage> {
           style: TextStyle(
               //fontFamily: 'quran',
               ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.bookmark),
+          onPressed: () async {
+            fabIsClicked = true;
+            if (await readBookmark() == true) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SurahBuilder(
+                            arabic: quran[0],
+                            sura: bookmarkedSura - 1,
+                            suraName: arabicName[bookmarkedSura - 1]['name'],
+                            ayah: bookmarkedAyah,
+                          )));
+            }
+          },
         ),
       ),
       body: FutureBuilder(
@@ -110,9 +125,9 @@ class _IndexPageState extends State<IndexPage> {
                     Text(
                       arabicName[i]['name'],
                       style: const TextStyle(
-                        fontSize: 30,
+                        fontSize: 25,
                         color: Colors.black87,
-                        fontFamily: 'quran',
+                        fontFamily: 'Tajawal',
                       ),
                       textDirection: TextDirection.rtl,
                     ),

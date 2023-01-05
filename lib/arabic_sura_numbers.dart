@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/arabic_numbers.dart';
+import 'package:quran_kareem/arabic_numbers.dart';
 
 
 
@@ -12,12 +12,6 @@ class ArabicSuraNumber extends StatelessWidget {
         color: Color.fromARGB(255, 0, 0, 0),
         fontFamily: 'me_quran',
         fontSize: 20,
-        shadows: [
-          Shadow(
-            offset: Offset(.5, .5),
-            blurRadius: 1.0,
-            color: Colors.amberAccent,
-          ),
-        ]),);
+       ),);
   }
 }

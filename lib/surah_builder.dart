@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quran/theme.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constant.dart';
+import 'theme.dart';
 
 class SurahBuilder extends StatefulWidget {
   final sura;
@@ -49,10 +48,9 @@ class _SurahBuilderState extends State<SurahBuilder> {
                 widget.arabic[index + previousVerses]['aya_text'],
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
-                  fontSize: arabicFontSize,
-                  fontFamily: arabicFont,
-                  color: const Color.fromARGB(196, 0, 0, 0),
-                ),
+                    fontSize: arabicFontSize,
+                    fontFamily: arabicFont,
+                    color: Colors.black),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -133,7 +131,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                                         SizedBox(
                                           width: 10,
                                         ),
-                                        Text('Share'),
+                                        Text('مشاركه'),
                                       ],
                                     ),
                                   ),
@@ -190,19 +188,28 @@ class _SurahBuilderState extends State<SurahBuilder> {
       theme: getThemData(),
       home: Scaffold(
         appBar: AppBar(
-          leading: Tooltip(
-            message: 'Mushaf Mode',
-            child: TextButton(
-              child: const Icon(
-                Icons.chrome_reader_mode,
-                color: Colors.white,
+          actions: [
+            Tooltip(
+              message: 'وضع المصحف',
+              child: TextButton(
+                child: const Icon(
+                  Icons.chrome_reader_mode,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  setState(() {
+                    view = !view;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  view = !view;
-                });
-              },
             ),
+          ],
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.chevron_left),
           ),
           title: Text(
             widget.suraName,
@@ -219,10 +226,10 @@ class RetunBasmala extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      const Center(
+    return Stack(children: const [
+      Center(
         child: Text(
-          'بسم الله الرحمن الرحيم',
+          "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
           style: TextStyle(fontFamily: 'me_quran', fontSize: 30),
           textDirection: TextDirection.rtl,
         ),

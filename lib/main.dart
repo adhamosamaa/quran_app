@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-
-import 'package:quran/index.dart';
+import 'package:flutter/services.dart';
 
 import 'constant.dart';
+import 'index.dart';
 import 'theme.dart';
 
 void main() {
+  //Now we use SystemChrome
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    //Lets make the Status Bar Transparent
+    statusBarColor: Colors.transparent,
+
+    //Lets make the status bar icon brightness to bright
+    statusBarIconBrightness: Brightness.light,
+  ));
   runApp(const MyApp());
 }
 
@@ -24,15 +32,18 @@ class _MyAppState extends State<MyApp> {
       await getSettings();
     });
     super.initState();
+   
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Quran',
+      title: 'Akra',
       theme: getThemData(),
-      home: IndexPage(),
+      home: const IndexPage(),
     );
   }
 }

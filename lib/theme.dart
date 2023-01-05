@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 ThemeData getThemData() => ThemeData(
       // primarySwatch: Colors.amber,
+      
 
       fontFamily: 'Tajawal',
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         foregroundColor: Color(
           0xffFEFAE0,
         ),
